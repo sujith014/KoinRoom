@@ -4,6 +4,10 @@ plugins {
 
     id("kotlin-kapt")
     alias(libs.plugins.kotlin.compose)
+
+    // serialization
+//    kotlin("jvm") version "2.1.10"
+    kotlin("plugin.serialization") version "2.1.10"
 }
 
 android {
@@ -86,13 +90,10 @@ dependencies {
 
     // Room
     val room_version = "2.6.1"
-
     implementation("androidx.room:room-runtime:$room_version")
-
     // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
     // See Add the kapt plugin to your project
     kapt("androidx.room:room-compiler:$room_version")
-
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
 
@@ -102,5 +103,12 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0") // Latest version
+
+    // serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+
+    // navigation
+    implementation("androidx.navigation:navigation-compose:2.8.8")
+
 
 }
